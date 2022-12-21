@@ -1,7 +1,6 @@
 package com.example.empleado.employee;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.io.Serializable;
@@ -9,6 +8,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -23,15 +25,15 @@ public class EmployeeEntity implements Serializable {
     )
     private UUID id;
 
-    @Column(name = "Nombre")
+    @Column(name = "Nombre", nullable = false)
     private String name;
 
-    @Column(name = "Apellido")
+    @Column(name = "Apellido", nullable = false)
     private String lastName;
 
-    @Column(name = "Fecha_Nacimiento")
+    @Column(name = "Fecha_Nacimiento", nullable = false)
     private Date birthDate;
 
-    @Column(name = "Sueldo")
+    @Column(name = "Sueldo", nullable = false)
     private int salary;
 }
