@@ -1,6 +1,5 @@
 package com.example.empleado.employee;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -35,13 +34,4 @@ public class EmployeeEntity implements Serializable {
 
     @Column(name = "Sueldo")
     private int salary;
-
-//    @Transient
-//    @Getter(AccessLevel.NONE)
-//    @Setter(AccessLevel.NONE)
-//    private double inputAFP;
-//
-//    public double getInputAFP() {
-//        return Math.round((this.salary * 0.1)*100.0)/100.0;
-//    }
 }

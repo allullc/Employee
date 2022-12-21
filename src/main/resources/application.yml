@@ -1,7 +1,7 @@
 api:
   info:
     title: Microservicio Empleado API
-    description: API para obtener los datos del empleado
+    description: API to get employee data
     version: 1.0.0
     contact:
       name: Luis Angel Llull Céspedes
