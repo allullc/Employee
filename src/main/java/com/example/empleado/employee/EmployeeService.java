@@ -1,6 +1,6 @@
 package com.example.empleado.employee;
 
-import com.example.empleado.employee.dto.EmployeeDto;
+import com.example.empleado.employee.dto.EmployeeUpdateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +14,11 @@ public class EmployeeService implements IEmployeeService {
     private final IEmployeeRepository repository;
 
     @Override
+    public EmployeeEntity findOne(UUID id){
+        return this.repository.findById(id).orElse(null);
+    }
+
+    @Override
     public List<EmployeeEntity> getAll() {
         return this.repository.findAll();
     }
@@ -24,25 +29,25 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public EmployeeEntity update(UUID id, EmployeeDto employee) {
-        EmployeeEntity point = repository.findById(id).orElse(null);
+    public EmployeeEntity update(UUID id, EmployeeUpdateDto employeeUpdateDto) {
+        EmployeeEntity point = this.repository.findById(id).orElse(null);
 
         if (point == null) return null;
 
-        if (employee.getName() != null) {
-            point.setName(employee.getName());
+        if (employeeUpdateDto.getName() != null) {
+            point.setName(employeeUpdateDto.getName());
         }
 
-        if (employee.getSalary() != null) {
-            point.setSalary(employee.getSalary());
+        if (employeeUpdateDto.getSalary() != null) {
+            point.setSalary(employeeUpdateDto.getSalary());
         }
 
-        if (employee.getLastName() != null) {
-            point.setLastName(employee.getLastName());
+        if (employeeUpdateDto.getLastName() != null) {
+            point.setLastName(employeeUpdateDto.getLastName());
         }
 
-        if (employee.getBirthDate() != null) {
-            point.setBirthDate(employee.getBirthDate());
+        if (employeeUpdateDto.getBirthDate() != null) {
+            point.setBirthDate(employeeUpdateDto.getBirthDate());
         }
 
         return repository.save(point);

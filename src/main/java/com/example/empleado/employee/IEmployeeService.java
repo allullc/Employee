@@ -1,16 +1,17 @@
 package com.example.empleado.employee;
 
-import com.example.empleado.employee.dto.EmployeeDto;
+import com.example.empleado.employee.dto.EmployeeUpdateDto;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface IEmployeeService {
-    public List<EmployeeEntity> getAll();
-    public EmployeeEntity create(EmployeeEntity empleado);
-    public EmployeeEntity update(UUID id, EmployeeDto empleado);
-    public void delete(UUID id);
+    EmployeeEntity findOne(UUID id);
+    List<EmployeeEntity> getAll();
+    EmployeeEntity create(EmployeeEntity employee);
+    EmployeeEntity update(UUID id, EmployeeUpdateDto employee);
+    void delete(UUID id);
 
-    public List<EmployeeEntity> findAllByOrderByBirthDateAsc();
-    public List<EmployeeEntity> findAllByOrderBySalaryDesc();
+    List<EmployeeEntity> findAllByOrderByBirthDateAsc();
+    List<EmployeeEntity> findAllByOrderBySalaryDesc();
 }

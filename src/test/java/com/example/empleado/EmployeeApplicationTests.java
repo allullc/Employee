@@ -3,7 +3,7 @@ package com.example.empleado;
 import com.example.empleado.employee.EmployeeEntity;
 import com.example.empleado.employee.IEmployeeService;
 
-import com.example.empleado.employee.dto.EmployeeDto;
+import com.example.empleado.employee.dto.EmployeeUpdateDto;
 import com.example.empleado.employee.dto.EmployeeSalaryDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -17,6 +17,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
+//TODO(test): Modificar test a unitarios
 
 @SpringBootTest
 class EmployeeApplicationTests {
@@ -50,13 +52,13 @@ class EmployeeApplicationTests {
 
         //-Update ////////////////////////////////////////////////////////////////////////
 
-        EmployeeDto employeeDto = EmployeeDto
+        EmployeeUpdateDto employeeUpdateDto = EmployeeUpdateDto
                 .builder()
                 .name("Pedro")
                 .salary(190.0)
                 .build();
 
-        EmployeeEntity employeeUpdate = this.service.update(employeeCreate.getId(), employeeDto);
+        EmployeeEntity employeeUpdate = this.service.update(employeeCreate.getId(), employeeUpdateDto);
 
         assertNotNull(employeeUpdate);
         assertEquals("Pedro", employeeUpdate.getName());
