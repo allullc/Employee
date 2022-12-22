@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 @SpringBootTest
-class EmpleadoApplicationTests {
+class EmployeeApplicationTests {
     @Autowired
     private IEmployeeService service;
 
@@ -53,7 +53,7 @@ class EmpleadoApplicationTests {
         EmployeeDto employeeDto = EmployeeDto
                 .builder()
                 .name("Pedro")
-                .salary(190)
+                .salary(190.0)
                 .build();
 
         EmployeeEntity employeeUpdate = this.service.update(employeeCreate.getId(), employeeDto);
@@ -91,7 +91,7 @@ class EmpleadoApplicationTests {
     void findAllByOrderBySalaryDesc() {
         List<EmployeeEntity> employees = this.service.findAllByOrderBySalaryDesc();
         List<EmployeeEntity> employeesSortList = new ArrayList<>(employees);
-        employeesSortList.sort((e1, e2) -> Integer.compare(e2.getSalary(), e1.getSalary()));
+        employeesSortList.sort((e1, e2) -> Double.compare(e2.getSalary(), e1.getSalary()));
 
         // Check that the array is sorted ////////////////////////////////////////////////////
         assertArrayEquals(employees.toArray(), employeesSortList.toArray());
