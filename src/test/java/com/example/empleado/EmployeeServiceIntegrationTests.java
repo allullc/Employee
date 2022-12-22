@@ -18,10 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-//TODO(test): Modificar test a unitarios
+//TODO(test): Crear los test de integracion para Controller
 
 @SpringBootTest
-class EmployeeApplicationTests {
+class EmployeeServiceIntegrationTests {
     @Autowired
     private IEmployeeService service;
 
