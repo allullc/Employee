@@ -10,13 +10,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import javax.validation.Valid;
+import java.util.*;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/empleado")
+@RequestMapping("/employee")
 public class EmployeeController {
 
     private final IEmployeeService service;
@@ -35,7 +34,7 @@ public class EmployeeController {
             @ApiResponse(responseCode = "200", description = "The employee was created successfully"),
     })
     @PostMapping()
-    public ResponseEntity<EmployeeEntity> create(@RequestBody EmployeeEntity empleado) {
+    public ResponseEntity<EmployeeEntity> create(@Valid @RequestBody EmployeeEntity empleado) {
         return ResponseEntity.ok(service.create(empleado));
     }
 
@@ -45,7 +44,7 @@ public class EmployeeController {
     })
     @PutMapping("/{id}")
     public ResponseEntity<EmployeeEntity> update(@PathVariable("id") UUID id,
-                                                 @RequestBody EmployeeDto empleado) {
+                                                 @Valid @RequestBody EmployeeDto empleado) {
         return ResponseEntity.ok(service.update(id, empleado));
     }
 
@@ -56,7 +55,7 @@ public class EmployeeController {
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") UUID id) {
         service.delete(id);
-        return "Eliminado correctamente";
+        return "Deleted successfully";
     }
 
     @Operation(summary = "Find all employees ordered from largest to smallest")

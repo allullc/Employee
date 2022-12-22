@@ -19,30 +19,30 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public EmployeeEntity create(EmployeeEntity empleado) {
-        return this.repository.save(empleado);
+    public EmployeeEntity create(EmployeeEntity employee) {
+        return this.repository.save(employee);
     }
 
     @Override
-    public EmployeeEntity update(UUID id, EmployeeDto empleado) {
+    public EmployeeEntity update(UUID id, EmployeeDto employee) {
         EmployeeEntity point = repository.findById(id).orElse(null);
 
         if (point == null) return null;
 
-        if (empleado.getName() != null) {
-            point.setName(empleado.getName());
+        if (employee.getName() != null) {
+            point.setName(employee.getName());
         }
 
-        if (empleado.getSalary() != null) {
-            point.setSalary(empleado.getSalary());
+        if (employee.getSalary() != null) {
+            point.setSalary(employee.getSalary());
         }
 
-        if (empleado.getLastName() != null) {
-            point.setLastName(empleado.getLastName());
+        if (employee.getLastName() != null) {
+            point.setLastName(employee.getLastName());
         }
 
-        if (empleado.getBirthDate() != null) {
-            point.setBirthDate(empleado.getBirthDate());
+        if (employee.getBirthDate() != null) {
+            point.setBirthDate(employee.getBirthDate());
         }
 
         return repository.save(point);

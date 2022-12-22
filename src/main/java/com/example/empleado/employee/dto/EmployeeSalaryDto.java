@@ -18,7 +18,7 @@ public class EmployeeSalaryDto {
 
     private Date birthDate;
 
-    private Integer salary;
+    private double salary;
 
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
