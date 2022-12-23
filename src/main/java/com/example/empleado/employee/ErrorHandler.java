@@ -1,5 +1,6 @@
 package com.example.empleado.employee;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
+@Log4j2
 @RestControllerAdvice
 public class ErrorHandler {
 
@@ -25,6 +27,13 @@ public class ErrorHandler {
             errorsMap.put(fieldName, errorMessage);
         });
         return errorsMap;
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundIdException.class)
+    public String handleNotFoundIdExceptions(
+            NotFoundIdException ex) {
+        return ex.getMessage();
     }
 
 }

@@ -54,7 +54,6 @@ public class EmployeeController {
         );
     }
 
-    //TODO: Manejar en el UPDATE cuando el id que se le pasa no existe, ahora da error 500
     @Operation(summary = "Updates the data of an employee by id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "The employee was successfully updated"),
@@ -68,7 +67,6 @@ public class EmployeeController {
         );
     }
 
-    //TODO: Manejar en el DELETE cuando el id que se le pasa no existe, ahora da error 500
     @Operation(summary = "Delete an employee by id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "The employee was successfully deleted"),
