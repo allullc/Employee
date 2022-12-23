@@ -35,11 +35,11 @@ class EmployeeServiceTests {
 
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         this.employee = EmployeeEntity.builder()
                 .name("Pedro")
                 .lastName("Lautaro")
-                .birthDate(new Date(1996, 5, 3))
+                .birthDate(new Date(1996, Calendar.JUNE, 3))
                 .salary(23.5)
                 .build();
     }
@@ -47,7 +47,7 @@ class EmployeeServiceTests {
     // JUnit test for saveEmployee method
     @DisplayName("JUnit test for create method in Service")
     @Test
-    void givenEmployeeObject_whenSaveEmployee_thenReturnEmployeeObject(){
+    void givenEmployeeObject_whenSaveEmployee_thenReturnEmployeeObject() {
         // given - precondition or setup
         given(employeeRepository.save(employee)).willReturn(employee);
 
@@ -65,16 +65,16 @@ class EmployeeServiceTests {
 
     @DisplayName("JUnit test for getAll method in Service")
     @Test
-    void givenEmployeesList_whenGetAllEmployees_thenReturnEmployeesList(){
+    void givenEmployeesList_whenGetAllEmployees_thenReturnEmployeesList() {
         // given - precondition or setup
         EmployeeEntity employee1 = EmployeeEntity.builder()
                 .name("Brus")
                 .lastName("Banner")
-                .birthDate(new Date(2001, 2, 3))
+                .birthDate(new Date(2001, Calendar.MARCH, 3))
                 .salary(23.5)
                 .build();
 
-        given(employeeRepository.findAll()).willReturn(List.of(this.employee,employee1));
+        given(employeeRepository.findAll()).willReturn(List.of(this.employee, employee1));
 
         // when -  action or the behaviour that we are going test
         List<EmployeeEntity> employeeList = employeeService.getAll();
@@ -88,7 +88,7 @@ class EmployeeServiceTests {
 
     @DisplayName("JUnit test for getAllEmployees method (negative scenario)")
     @Test
-    void givenEmptyEmployeesList_whenGetAllEmployees_thenReturnEmptyEmployeesList(){
+    void givenEmptyEmployeesList_whenGetAllEmployees_thenReturnEmptyEmployeesList() {
         // given - precondition or setup
         given(employeeRepository.findAll()).willReturn(Collections.emptyList());
 
@@ -97,21 +97,20 @@ class EmployeeServiceTests {
 
         // then - verify the output
         assertAll("Should return a null list with size equal to 0",
-                () -> assertThat(employeeList).isEmpty(),
-                () -> assertThat(employeeList).hasSize(0)
+                () -> assertThat(employeeList).isEmpty()
         );
     }
 
     @DisplayName("JUnit test for update method in Service")
     @Test
-    void givenEmployeeObject_whenUpdateEmployee_thenReturnUpdatedEmployee(){
+    void givenEmployeeObject_whenUpdateEmployee_thenReturnUpdatedEmployee() {
         UUID id = UUID.fromString("c81d4e2e-bcf2-11e6-869b-7df92533d2db");
 
         // given - precondition or setup
         EmployeeEntity employeeFindId = EmployeeEntity.builder()
                 .name("Brus")
                 .lastName("Banner")
-                .birthDate(new Date(2001, 2, 3))
+                .birthDate(new Date(2001, Calendar.MARCH, 3))
                 .salary(23.5)
                 .build();
 
@@ -119,7 +118,7 @@ class EmployeeServiceTests {
                 .builder()
                 .name("Leonel")
                 .lastName("Messi")
-                .birthDate(new Date(2001, 2, 3))
+                .birthDate(new Date(2001, Calendar.MARCH, 3))
                 .salary(23.5)
                 .build();
 
@@ -145,7 +144,7 @@ class EmployeeServiceTests {
 
     @DisplayName("JUnit test for update method null return in Service")
     @Test
-    void givenEmployeeObject_whenUpdateEmployee_thenReturnNullUpdatedEmployee(){
+    void givenEmployeeObject_whenUpdateEmployee_thenReturnNullUpdatedEmployee() {
         UUID id = UUID.fromString("c81d4e2e-bcf2-11e6-869b-7df92533d2db");
 
         // given - precondition or setup
@@ -166,7 +165,7 @@ class EmployeeServiceTests {
 
     @DisplayName("JUnit test for delete method in Service")
     @Test
-    void givenEmployeeId_whenDeleteEmployee_thenNothing(){
+    void givenEmployeeId_whenDeleteEmployee_thenNothing() {
         // given - precondition or setup
         UUID id = UUID.fromString("c81d4e2e-bcf2-11e6-869b-7df92533d2db");
 
@@ -182,12 +181,12 @@ class EmployeeServiceTests {
 
     @DisplayName("JUnit test for findAllByOrderByBirthDateAsc method in Service")
     @Test
-    void givenEmployeesListSortedByBirthDate_whenFindAllByOrderByBirthDateAsc(){
+    void givenEmployeesListSortedByBirthDate_whenFindAllByOrderByBirthDateAsc() {
         // given - precondition or setup
         EmployeeEntity employee1 = EmployeeEntity.builder()
                 .name("Brus")
                 .lastName("Banner")
-                .birthDate(new Date(1994, 2, 3))
+                .birthDate(new Date(1994, Calendar.MARCH, 3))
                 .salary(23.5)
                 .build();
 
@@ -195,7 +194,7 @@ class EmployeeServiceTests {
                 .builder()
                 .name("Leonel")
                 .lastName("Messi")
-                .birthDate(new Date(1996, 2, 3))
+                .birthDate(new Date(1996, Calendar.MARCH, 3))
                 .salary(78.9)
                 .build();
 
@@ -212,12 +211,12 @@ class EmployeeServiceTests {
 
     @DisplayName("JUnit test for findAllByOrderBySalaryDesc method in Service")
     @Test
-    void givenEmployeesListSortedBySalary_whenFindAllByOrderBySalaryDesc(){
+    void givenEmployeesListSortedBySalary_whenFindAllByOrderBySalaryDesc() {
         // given - precondition or setup
         EmployeeEntity employee1 = EmployeeEntity.builder()
                 .name("Brus")
                 .lastName("Banner")
-                .birthDate(new Date(1994, 2, 3))
+                .birthDate(new Date(1994, Calendar.MARCH, 3))
                 .salary(23)
                 .build();
 
@@ -225,7 +224,7 @@ class EmployeeServiceTests {
                 .builder()
                 .name("Leonel")
                 .lastName("Messi")
-                .birthDate(new Date(1996, 2, 3))
+                .birthDate(new Date(1996, Calendar.MARCH, 3))
                 .salary(12)
                 .build();
 
