@@ -51,13 +51,13 @@ public class EmployeeService implements IEmployeeService {
             point.setBirthDate(employeeUpdateDto.getBirthDate());
         }
 
-        return repository.save(point);
+        return this.repository.save(point);
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(UUID id) throws NotFoundIdException {
         try {
-            repository.deleteById(id);
+            this.repository.deleteById(id);
         } catch (EmptyResultDataAccessException ex) {
             throw new NotFoundIdException();
         }

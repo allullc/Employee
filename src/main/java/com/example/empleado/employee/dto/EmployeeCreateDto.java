@@ -7,6 +7,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
