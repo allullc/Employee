@@ -2,6 +2,7 @@ package com.example.empleado.employee;
 
 import com.example.empleado.employee.dto.EmployeeUpdateDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class EmployeeService implements IEmployeeService {
     private final IEmployeeRepository repository;
 
     @Override
-    public EmployeeEntity findOne(UUID id){
+    public EmployeeEntity findOne(UUID id) {
         return this.repository.findById(id).orElse(null);
     }
 
@@ -32,7 +33,7 @@ public class EmployeeService implements IEmployeeService {
     public EmployeeEntity update(UUID id, EmployeeUpdateDto employeeUpdateDto) {
         EmployeeEntity point = this.repository.findById(id).orElse(null);
 
-        if (point == null) return null;
+        if (point == null) throw new NotFoundIdException();
 
         if (employeeUpdateDto.getName() != null) {
             point.setName(employeeUpdateDto.getName());
@@ -55,16 +56,20 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void delete(UUID id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (EmptyResultDataAccessException ex) {
+            throw new NotFoundIdException();
+        }
     }
 
     @Override
-    public List<EmployeeEntity> findAllByOrderByBirthDateAsc(){
+    public List<EmployeeEntity> findAllByOrderByBirthDateAsc() {
         return repository.findAllByOrderByBirthDateAsc();
     }
 
     @Override
-    public List<EmployeeEntity> findAllByOrderBySalaryDesc(){
+    public List<EmployeeEntity> findAllByOrderBySalaryDesc() {
         return repository.findAllByOrderBySalaryDesc();
     }
 }
