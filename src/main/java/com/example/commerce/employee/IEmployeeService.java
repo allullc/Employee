@@ -1,6 +1,6 @@
-package com.example.empleado.employee;
+package com.example.commerce.employee;
 
-import com.example.empleado.employee.dto.EmployeeUpdateDto;
+import com.example.commerce.employee.dto.EmployeeUpdateDto;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,6 +1,7 @@
-package com.example.empleado.employee;
+package com.example.commerce.employee;
 
-import com.example.empleado.employee.dto.EmployeeUpdateDto;
+import com.example.commerce.employee.dto.EmployeeUpdateDto;
+import com.example.commerce.util.NotFoundIdException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
