@@ -1,4 +1,4 @@
-package com.example.empleado.employee;
+package com.example.commerce.util;
 
 public class NotFoundIdException extends RuntimeException {
    public NotFoundIdException() {

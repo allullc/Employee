@@ -1,10 +1,10 @@
-package com.example.empleado;
+package com.example.commerce;
 
-import com.example.empleado.employee.EmployeeEntity;
-import com.example.empleado.employee.IEmployeeService;
+import com.example.commerce.employee.EmployeeEntity;
+import com.example.commerce.employee.IEmployeeService;
 
-import com.example.empleado.employee.dto.EmployeeUpdateDto;
-import com.example.empleado.employee.dto.EmployeeSalaryDto;
+import com.example.commerce.employee.dto.EmployeeUpdateDto;
+import com.example.commerce.employee.dto.EmployeeSalaryDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,9 @@
-package com.example.empleado.employee;
+package com.example.commerce.employee;
 
-import com.example.empleado.employee.dto.EmployeeCreateDto;
-import com.example.empleado.employee.dto.EmployeeDTO;
-import com.example.empleado.employee.dto.EmployeeUpdateDto;
-import com.example.empleado.employee.dto.EmployeeSalaryDto;
+import com.example.commerce.employee.dto.EmployeeCreateDto;
+import com.example.commerce.employee.dto.EmployeeDTO;
+import com.example.commerce.employee.dto.EmployeeUpdateDto;
+import com.example.commerce.employee.dto.EmployeeSalaryDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

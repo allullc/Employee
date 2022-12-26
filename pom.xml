@@ -12,13 +12,13 @@
 
     <groupId>com.example</groupId>
 
-    <artifactId>Empleado</artifactId>
+    <artifactId>Commerce</artifactId>
 
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>Empleado</name>
+    <name>Commerce</name>
 
-    <description>Empleado</description>
+    <description>Commerce</description>
 
     <properties>
         <java.version>11</java.version>

@@ -1,4 +1,4 @@
-package com.example.empleado;
+package com.example.commerce;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

@@ -1,11 +1,11 @@
-package com.example.empleado;
+package com.example.commerce;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.example.empleado.employee.EmployeeEntity;
-import com.example.empleado.employee.EmployeeService;
-import com.example.empleado.employee.IEmployeeRepository;
-import com.example.empleado.employee.dto.EmployeeUpdateDto;
+import com.example.commerce.employee.EmployeeEntity;
+import com.example.commerce.employee.EmployeeService;
+import com.example.commerce.employee.IEmployeeRepository;
+import com.example.commerce.employee.dto.EmployeeUpdateDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

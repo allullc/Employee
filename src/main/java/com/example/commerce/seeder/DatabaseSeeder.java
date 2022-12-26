@@ -1,8 +1,7 @@
-package com.example.empleado.seeder;
+package com.example.commerce.seeder;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,7 +23,7 @@ public class DatabaseSeeder {
 //        jdbcTemplate.execute(this.getEmployeeSQL());
     }
 
-    private @NotNull String getEmployeeSQL() {
+    private String getEmployeeSQL() {
         return "INSERT INTO employee (id, name, last_name, birth_date, salary)" +
                 "SELECT 'c41f6764-e05e-407e-8402-2dd4d9abf47e', 'Leonel', 'Messi', '1968-03-03 00:00:00', 35.23" +
                 "WHERE NOT EXISTS(SELECT 1 FROM employee WHERE id = 'c41f6764-e05e-407e-8402-2dd4d9abf47e');" +

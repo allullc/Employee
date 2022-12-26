@@ -1,10 +1,10 @@
-package com.example.empleado;
+package com.example.commerce;
 
-import com.example.empleado.employee.EmployeeController;
-import com.example.empleado.employee.EmployeeEntity;
-import com.example.empleado.employee.EmployeeService;
-import com.example.empleado.employee.NotFoundIdException;
-import com.example.empleado.employee.dto.EmployeeCreateDto;
+import com.example.commerce.employee.EmployeeController;
+import com.example.commerce.employee.EmployeeEntity;
+import com.example.commerce.employee.EmployeeService;
+import com.example.commerce.util.NotFoundIdException;
+import com.example.commerce.employee.dto.EmployeeCreateDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;

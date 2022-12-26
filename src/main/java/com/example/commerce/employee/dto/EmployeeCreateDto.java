@@ -1,4 +1,4 @@
-package com.example.empleado.employee.dto;
+package com.example.commerce.employee.dto;
 
 import lombok.*;
 
