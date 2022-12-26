@@ -31,7 +31,7 @@ public class EmployeeEntity implements Serializable {
     @Column(name = "LastName", nullable = false)
     private String lastName;
 
-    //TODO: Debe ser 2022-12-22
+    // TODO: Debe ser 2022-12-22
     @Column(name = "Birth_Date", nullable = false)
     private Date birthDate;
 
